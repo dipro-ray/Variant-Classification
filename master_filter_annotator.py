@@ -11,19 +11,19 @@ def main(args):
 	# Proband file processing
 
 	# Quality filtration
-	#subprocess.call('python ' + args.script_directory + '20190731_quality_filter.py -f ' + args.proband_filename + ' -DP ' + args.depth + ' -GQ ' + args.genotype_quality + ' -MQ ' + args.mapping_quality + ' -FS ' + args.fisher_strand, shell=True)
+	subprocess.call('python ' + args.script_directory + '20190731_quality_filter.py -f ' + args.proband_filename + ' -DP ' + args.depth + ' -GQ ' + args.genotype_quality + ' -MQ ' + args.mapping_quality + ' -FS ' + args.fisher_strand, shell=True)
 	output_filename = args.proband_filename + '_DP-' + args.depth + '_GQ-' + args.genotype_quality + '_MQ-' + args.mapping_quality + '_FS-' + args.fisher_strand + '_filtered.vcf'
 
 	# Internal cohort filtration
 	print 'python ' + args.script_directory + '20190731_internal_cohort_filter.py -c ' + args.cohort_directory + ' -f ' + output_filename + ' -t snp -n ' + args.max_observation_number
-	#subprocess.call('python ' + args.script_directory + '20190731_internal_cohort_filter.py -c ' + args.cohort_directory + ' -f ' + output_filename + ' -t snp -n ' + args.max_observation_number, shell=True) 
+	subprocess.call('python ' + args.script_directory + '20190731_internal_cohort_filter.py -c ' + args.cohort_directory + ' -f ' + output_filename + ' -t snp -n ' + args.max_observation_number, shell=True) 
 	output_filename = output_filename + '.icohort_' + args.max_observation_number + '_filter.vcf'
 
 	# Gnomad genome/exome annotation
 	print '\n'
 	print 'python ' + args.script_directory + '20190730_gnomad_genome_exome_vcf_af_ac_annotator_args.py -f ' + output_filename
 	print '\n'	
-	#subprocess.call('python ' + args.script_directory + '20190730_gnomad_genome_exome_vcf_af_ac_annotator_args.py -f ' + output_filename, shell=True)
+	subprocess.call('python ' + args.script_directory + '20190730_gnomad_genome_exome_vcf_af_ac_annotator_args.py -f ' + output_filename, shell=True)
 	output_filename = output_filename + '_gnomAD_ge_anno.vcf'
 
 	# Inheritance annotation

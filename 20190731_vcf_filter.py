@@ -68,7 +68,7 @@ def main(args):
 							ePass = 1
 					if compHet == "False":
 						if gPass == 1 or (ePass == 1 and gPass == 1):
-							print chrom, pos, gPass, ePass, 'gAN='+ str(gAN), 'gAF='+str(gAF), 'eAN='+ str(eAN), 'eAF='+str(eAF)
+							#print chrom, pos, gPass, ePass, 'gAN='+ str(gAN), 'gAF='+str(gAF), 'eAN='+ str(eAN), 'eAF='+str(eAF)
 							outfile.write('\t'.join([chrom, pos, id, ref, alt, qual, filter, info, format, extra])+'\n')
 					else:
 						g2Pass = 1
@@ -81,8 +81,8 @@ def main(args):
 							e2Pass = 0
 							if e2AN == 0:
 								e2Pass = 1
-						if (gPass == 1 or (ePass == 1 and gPass == 1)) or (g2Pass == 1 or (e2Pass == 1 and g2Pass == 1)):
-							print chrom, pos, gPass, ePass, 'gAN='+ str(gAN), 'gAF='+str(gAF), 'eAN='+ str(eAN), 'eAF='+str(eAF)
+						if ((gPass == 1 or (ePass == 1 and gPass == 1)) or (g2Pass == 1 or (e2Pass == 1 and g2Pass == 1))):
+							#print chrom, pos, gPass, ePass, 'gAN='+ str(gAN), 'gAF='+str(gAF), 'eAN='+ str(eAN), 'eAF='+str(eAF)
 							outfile.write('\t'.join([chrom, pos, id, ref, alt, qual, filter, info, format, extra])+'\n')
 
 if __name__ == "__main__":

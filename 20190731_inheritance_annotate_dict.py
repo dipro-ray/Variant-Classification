@@ -148,11 +148,19 @@ def main(args):
 							key = '_'.join([temp[0], temp[1], temp[2], rref, str(aalt)])
 							patd2[key] = line
 					except IndexError:
+						pass
+					except ValueError:
 						pass	
 					
 					rref = ref
 					aalt = alt.split(',')
-					aalt = aalt[int(father_GT[1]) - 1]
+					try:
+						aalt = aalt[int(father_GT[1]) - 1]
+					except ValueError:
+						pass
+
+					#if father_GT[1] == '.':
+					#	if father_GT[0] == father_GT[1]
 
 					while True:
 						if len(rref) == 1 or len(aalt) == 1:

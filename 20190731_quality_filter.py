@@ -23,7 +23,7 @@ def main(args):
 					QD = float(temp[7].split('QD=')[1].split(';')[0])
 					MQ = float(temp[7].split('MQ=')[1].split(';')[0])
 					FS = float(temp[7].split('FS=')[1].split(';')[0])
-					if DP >= args.depth and GQ >= args.genotype_quality and FS <= args.fisher_strand and MQ <= args.mapping_quality:
+					if DP >= args.depth and GQ >= args.genotype_quality and FS <= args.fisher_strand and MQ >= args.mapping_quality:
 						outfile.write(line)
 
 
